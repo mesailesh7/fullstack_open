@@ -1,18 +1,11 @@
 import { useState } from "react";
 import Note from "./components/Note";
 
-// const Note = ({ note }) => {
-//   return <li>{note.content}</li>;
-// };
-
 const App = () => {
-  const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
+  const [persons, setPersons] = useState([{ name: "Arto Hellas", id: 1 }]);
   const [newName, setNewName] = useState("");
 
-  console.log(persons);
-
   const handleNameChange = (e) => {
-    console.log(e.target.value);
     setNewName(e.target.value);
   };
 
@@ -20,26 +13,24 @@ const App = () => {
     e.preventDefault();
     const newPerson = {
       name: newName,
-      id: Date.now(),
+      id: persons.length + 1,
     };
     setPersons([...persons, newPerson]);
     setNewName("");
   };
 
-  const handleDelete = (id) => {
-    setPersons(persons.filter((person) => person.id !== id));
-  };
+  // const handleDelete = (id) => {
+  //   setPersons(persons.filter((person) => person.id !== id));
+  // };
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           name: <input value={newName} onChange={handleNameChange} />
         </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
+        <button type="submit">add</button>
       </form>
       <h2>Numbers</h2>
       <ul>

@@ -1,5 +1,5 @@
-const Note = ({ note }) => {
-  return <li>{note.content}</li>;
+const Note = ({ person }) => {
+  return <li>{person.name}</li>;
 };
 
 export default Note;
