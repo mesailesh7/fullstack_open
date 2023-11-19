@@ -1,5 +1,9 @@
 import { useState } from "react";
-import Note from "./components/Note";
+// import Note from "./components/Note";
+
+const Note = ({ person }) => {
+  return <li>{person.name}</li>;
+};
 
 const App = () => {
   const [persons, setPersons] = useState([{ name: "Arto Hellas", id: 1 }]);
