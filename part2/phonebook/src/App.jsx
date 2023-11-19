@@ -19,10 +19,6 @@ const App = () => {
     setNewName("");
   };
 
-  // const handleDelete = (id) => {
-  //   setPersons(persons.filter((person) => person.id !== id));
-  // };
-
   return (
     <div>
       <h2>Phonebook</h2>
